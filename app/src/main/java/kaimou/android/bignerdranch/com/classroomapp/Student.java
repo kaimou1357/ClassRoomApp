@@ -17,6 +17,7 @@ public class Student {
 
     public int getPoints(){
         return totalPoints;
+
     }
 
 }
