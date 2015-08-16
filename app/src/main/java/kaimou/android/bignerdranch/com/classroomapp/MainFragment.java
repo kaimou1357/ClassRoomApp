@@ -31,6 +31,17 @@ public class MainFragment extends Fragment {
 
     public void onStart(){
         super.onStart();
+        settings_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Fragment fragment = new EditClassFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.replace(R.id.mainActivity, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
         classes_button.setOnClickListener(new View.OnClickListener(){
             public void onClick (View v){
                 //if clicked, bring you to your classes fragment.

@@ -5,9 +5,11 @@ package kaimou.android.bignerdranch.com.classroomapp;
  */
 public class Student {
     private int totalPoints;
+    private String sName = "";
 
-    public Student(){
+    public Student(String name){
         totalPoints = 0;
+        sName = name;
     }
 
     public void modPoints(int points){
@@ -18,6 +20,10 @@ public class Student {
     public int getPoints(){
         return totalPoints;
 
+    }
+
+    public String toString(){
+        return sName;
     }
 
 }

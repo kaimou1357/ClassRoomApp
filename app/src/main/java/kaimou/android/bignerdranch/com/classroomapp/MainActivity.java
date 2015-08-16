@@ -9,7 +9,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements ClassFragment.OnArticleSelectedListener {
+
+    public void onArticleSelected(Classroom room){
+        Bundle arguments = new Bundle();
+        //arguments.
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

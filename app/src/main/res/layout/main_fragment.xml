@@ -16,7 +16,7 @@
     <Button
         android:layout_width="137dp"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:text="Edit Classes/Students"
         android:id="@+id/edit_button"
         android:layout_gravity="center_horizontal" />
 
