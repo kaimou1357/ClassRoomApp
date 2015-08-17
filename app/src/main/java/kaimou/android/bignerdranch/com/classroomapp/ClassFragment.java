@@ -19,25 +19,9 @@ import android.widget.ListView;
 public class ClassFragment extends ListFragment {
     private ArrayAdapter<String> adapter = null;
     ListView listView;
-    OnArticleSelectedListener mListener;
+
 
     //container activity must implement this interface to communicate between two fragments.
-
-    public interface OnArticleSelectedListener{
-        public void onArticleSelected(Classroom room);
-    }
-
-    public void onAttach(Activity activity){
-        super.onAttach(activity);
-        try{
-            mListener = (OnArticleSelectedListener) activity;
-
-        } catch (ClassCastException e){
-            throw new ClassCastException(activity.toString() + "must implement OnArticleSelectedListener");
-        }
-    }
-
-
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.class_fragment, container, false);
@@ -52,11 +36,11 @@ public class ClassFragment extends ListFragment {
     public void onStart(){
         super.onStart();
 
-        String[] classRoomNames = {"Test Classroom", "TestClassroom2", "TestClass3"};
+
 
         //define a new adapter
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, classRoomNames);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, MainActivity.getClasses());
 
         listView.setAdapter(adapter);
 
@@ -74,8 +58,12 @@ public class ClassFragment extends ListFragment {
 
 
     }
-
+    /*
+    This method should show the list of students that are associated with this class.
+    Needs to pass the class argument to the student Fragment class.
+     */
     public void showStudents(int position){
+
 
     }
 }

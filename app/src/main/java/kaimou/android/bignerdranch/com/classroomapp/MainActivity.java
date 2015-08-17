@@ -9,13 +9,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends FragmentActivity implements ClassFragment.OnArticleSelectedListener {
+import java.util.ArrayList;
 
-    public void onArticleSelected(Classroom room){
-        Bundle arguments = new Bundle();
-        //arguments.
-    }
+public class MainActivity extends FragmentActivity {
 
+    static ArrayList<Classroom> listOfClasses = new ArrayList<Classroom>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,5 +48,24 @@ public class MainActivity extends FragmentActivity implements ClassFragment.OnAr
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public static void addClass(String className){
+        Classroom c = new Classroom(className);
+        listOfClasses.add(c);
+
+    }
+
+    public static String[] getClasses(){
+        String[] temp = new String[listOfClasses.size()];
+        if(listOfClasses.size() == 0){
+            return temp;
+        }
+
+        for(int i = 0; i<listOfClasses.size(); i++){
+            temp[i] = listOfClasses.get(i).toString();
+        }
+
+        return temp;
     }
 }
