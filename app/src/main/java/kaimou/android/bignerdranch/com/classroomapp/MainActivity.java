@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class MainActivity extends FragmentActivity {
 
     static ArrayList<Classroom> listOfClasses = new ArrayList<Classroom>();
+    static Classroom userSelectedClass = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,5 +68,14 @@ public class MainActivity extends FragmentActivity {
         }
 
         return temp;
+    }
+
+    public static Classroom getUserSelectedClass(){
+        return userSelectedClass;
+    }
+
+    public static void setUserSelectedClass(int position){
+        userSelectedClass = listOfClasses.get(position);
+
     }
 }
