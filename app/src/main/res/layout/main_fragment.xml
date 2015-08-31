@@ -23,8 +23,8 @@
     <Button
         android:layout_width="127dp"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button3"
+        android:text="Edit Points"
+        android:id="@+id/configurePointsButton"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.07" />
 </LinearLayout>

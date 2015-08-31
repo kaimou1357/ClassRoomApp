@@ -3,10 +3,13 @@ package kaimou.android.bignerdranch.com.classroomapp;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -79,6 +82,25 @@ public class EditClassFragment extends Fragment {
 
             }
         });
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //as soon as a class is clicked, load another fragment and pass to the other fragment what the class is so the other fragment can load the list
+                // of students associated with the class.
+                passClass(position);
+                //pass the classroom to Activity.
+
+                Fragment fragment = new AddStudentFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.replace(R.id.mainActivity, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
+
     }
 
     private void updateData(){
@@ -87,6 +109,11 @@ public class EditClassFragment extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, MainActivity.getClasses());
 
         listView.setAdapter(adapter);
+    }
+
+    public void passClass(int position){
+        MainActivity.setUserSelectedClass(position);
+
     }
 
 }

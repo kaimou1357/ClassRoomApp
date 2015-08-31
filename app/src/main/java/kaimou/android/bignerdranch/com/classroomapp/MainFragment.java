@@ -17,6 +17,7 @@ import android.widget.Button;
 public class MainFragment extends Fragment {
     private Button classes_button;
     private Button settings_button;
+    private Button configure_points_button;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.main_fragment, container,false);
@@ -26,6 +27,7 @@ public class MainFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState){
         classes_button = (Button)view.findViewById(R.id.classes_button);
         settings_button = (Button)view.findViewById(R.id.edit_button);
+        configure_points_button = (Button) view.findViewById(R.id.configurePointsButton);
 
     }
 
@@ -52,6 +54,19 @@ public class MainFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
+            }
+        });
+
+        configure_points_button.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+                //this needs a button and Listview to add
+                Fragment fragment = new PointsFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.replace(R.id.mainActivity, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
     }

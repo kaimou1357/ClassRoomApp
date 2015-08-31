@@ -21,13 +21,18 @@ public class Classroom {
         wholeClass.add(s);
     }
 
-    public String[] getStudents(){
+    public ArrayList<Student> getStudents(){
+
+        return wholeClass;
+
+    }
+
+    public String[] getStudentsString(){
         String[] studentList = new String[wholeClass.size()];
         for(int i = 0; i<wholeClass.size(); i++){
             studentList[i] = wholeClass.get(i).toString();
         }
         return studentList;
-
     }
 
     public String toString(){
